@@ -6,31 +6,29 @@
 }
 
 body {
-  margin: 0
   display: grid;
-  grid-template-areas:
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: 
   'header' 'header'
-  'nav'    '.img_card_container'
-  'footer' 'footer'
-  grid-template-columns: 0.3 1fr;
-  grid-template-rows: 300px 1fr 60px;
+  'nav'    'main'
+  'footer' 'footer';
 }
 
 body {
   font-family: 'Indie Flower', cursive;
   font-size: 1.2rem;
   margin: 0;
-  box-sizing: border-box; 300px 
+  box-sizing: border-box;
   min-height: 100vh;
 }
 
 .header {
-  grid-area: header;
   background-color: var(--primary);
   color: var(--white);
   display: grid;
   align-items: center;
   justify-items: center;
+  grid-column-end: span 2;
 }
 
 .header__title {
@@ -39,24 +37,15 @@ body {
   font-family: 'Pacifico', cursive;
 }
 
-.nav {
-  grid-area: nav;
-  padding: 20px
-  display: grid;
-  justify-items: end;
-  grid-auto-rows: 50px;
-}
-
 .nav__container {
   grid-area: nav;
   box-shadow: var(--gray) 4px 4px 10px 2px;
   display: grid;
   row-gap: 24px;
-  justify-items:flex-start;
+  grid-template-columns: 1fr;
+  min-width: 50px;
+  justify-items: center;
   padding: 12px 0 24px;
-  grid-template-columns: 5px;
-  grid-template-columns: repeat(1fr);
-  max-width: 300px;
 }
 
 .nav__link, .nav__link--active {
@@ -79,9 +68,8 @@ body {
   padding: 0 70px;
 }
 
-.img_card_container {
-  display: grid;
-  grid-area: img_card_container;
+.main {
+  grid-area: main; 
   grid-template-columns: repeat(auto-fill, minmax (300px, 1fr));
   grid-auto-rows: 350px;
 }
@@ -102,33 +90,16 @@ body {
 }
 
 .footer {
-  display: grid;
+  grid-area: footer;
   align-items: center;
   justify-items: center;
 }
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1100px) 
   body {
-    grid-template-areas:
-    'header'
-    'nav'
-    'img_card_container'
-    'footer'
-  }
-
-  .header__title {
-    font-size: 2rem;
-  }
-  .nav__container {
-    
-  }
-  .nav__link, .nav__link--active {
-    text-decoration: underline;
-  }
-  .nav__link--active {
-    padding: 0;
-  }
-  .nav__link::after, .nav__link--active::after {
-    display: none;
-  }
+  grid-template-areas:
+  'header'
+  'nav'
+  'main'
+  'footer'
 }
