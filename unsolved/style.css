@@ -9,9 +9,9 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-areas: 
-  'header' 'header'
-  'nav'    'main'
-  'footer' 'footer';
+  'header header'
+  'nav    main'
+  'footer footer';
 }
 
 body {
@@ -69,6 +69,7 @@ body {
 }
 
 .main {
+  display: grid;
   grid-area: main; 
   grid-template-columns: repeat(auto-fill, minmax (300px, 1fr));
   grid-auto-rows: 350px;
